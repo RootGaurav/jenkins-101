@@ -1,7 +1,13 @@
-import fire
+# hello.py
 
-def hello(name="World"):
-  return "Hello %s!" % name
+from colorama import init, Fore
+import argparse
 
-if __name__ == '__main__':
-  fire.Fire(hello)
+init(autoreset=True)
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--name", default="World", help="Name to greet")
+
+args = parser.parse_args()
+
+print(Fore.GREEN + f"Hello {args.name}!")
